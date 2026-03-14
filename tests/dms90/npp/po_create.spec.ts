@@ -28,7 +28,7 @@ import { test, expect } from '@playwright/test';
 
  */
 
-test('test', async ({ page }) => {
+test('DMS90 - Create PO with valid data', async ({ page }) => {
   await page.goto('https://ht-portal-uat.finviet.com.vn/auth/login');
 
   await page.getByRole('textbox', { name: 'Nhập vào tài khoản.' }).fill('PWQCMT');
