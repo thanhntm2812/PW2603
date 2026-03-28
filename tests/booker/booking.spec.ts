@@ -130,3 +130,38 @@ test("DELETE a booking", async ({request}) => {
     expect(response.status()).toBe(201);
 });
 
+
+test("PUT update a booking", async ({request}) => {
+    // get token
+    const authResponse = await request.post('https://restful-booker.herokuapp.com/auth', {
+        data: {
+            username: 'admin',
+            password: 'password123'
+        }
+    });
+    expect(authResponse.status()).toBe(200);
+    const authData = await authResponse.json();
+    const token = authData.token;
+
+    const updatedBookingPayload = {
+        firstname: "Jane",
+        lastname: "Smith",
+        totalprice: 200,
+        depositpaid: false,
+        bookingdates: {
+            checkin: "2026-05-01",
+            checkout: "2026-05-10"
+        },
+        additionalneeds: "Late checkout"
+    };
+
+    const response = await request.put('https://restful-booker.herokuapp.com/booking/1', {
+        data: updatedBookingPayload,
+        headers: {'Cookie': `token=${token}`}   
+    });
+
+    expect(response.status()).toBe(200);
+    const updatedBookingResponse = await response.json();
+    console.log(updatedBookingResponse);
+    expect(updatedBookingResponse).toMatchObject(updatedBookingPayload);
+});
