@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 /**
- * TC02: Create PO : Login successful with valid credentials
+ * TC03: Create PO : Login successful with valid credentials
  * 
  * pre-condition: User has an account and valid credentials
 1. Open browser

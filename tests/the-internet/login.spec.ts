@@ -10,6 +10,9 @@ Fill in the password with SuperSecretPassword!
 Click on Login button
 And the home page is appear
  */
+
+test.describe.configure({mode: "serial"})
+test.describe("ASDASD", () => {
 test('Login successful with valid credentials', async ({ page }) => {
   await page.goto('https://the-internet.herokuapp.com/login');
   await page.locator('html').click();
@@ -27,6 +30,7 @@ test('Login successful by locator', async ({ page }) => {
   await page.locator('#username').fill('tomsmith');
 
   await page.locator('#password').fill('SuperSecretPassword!');
+  await page.locator('button[type="submit"]').click();
 
   await expect(page.getByText('You logged into a secure area')).toBeVisible();
   await expect(page.locator('h4')).toContainText('Welcome to the Secure Area. When you are done click logout below.');
@@ -43,3 +47,4 @@ test('Login successful by xpath', async ({ page }) => {
   await expect(page.locator('h4')).toContainText('Welcome to the Secure Area. When you are done click logout below.');
 });
 
+})

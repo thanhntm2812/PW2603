@@ -10,7 +10,7 @@ Click on Login button
 And the home page is appear
  */
 
-test('Login successful with valid credentials', async ({ page }) => {
+test('Login NPP successful', async ({ page }) => {
   await page.goto('https://ht-portal-uat.finviet.com.vn/auth/login');
 
   await page.getByRole('textbox', { name: 'Nhập vào tài khoản.' }).fill('PWQCMT');

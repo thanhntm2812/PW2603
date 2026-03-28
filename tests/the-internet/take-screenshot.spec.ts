@@ -1,6 +1,6 @@
 import {test,expect} from '@playwright/test'
-// Take a screenshot of the full page
 
+// Take a screenshot of the full page
 await page.screenshot({ path: 'screenshot.png', fullPage: true });
 
 // Take a screenshot of a specific element
