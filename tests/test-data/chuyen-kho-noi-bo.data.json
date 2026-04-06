@@ -1,0 +1,25 @@
+[
+    {
+        "id": "TC_HappyPath",
+        "description": "Full flow Internal Stock Transfer: Create and Approve with Data Driven",
+        "nppUsername": "PWQCMT",
+        "nppPassword": "Abc@123123",
+        "hoUsername": "PWHO",
+        "hoPassword": "Abc@123123",
+        "sourceWarehouse": "Kho bán",
+        "sourceChannel": "CHUNG",
+        "targetWarehouse": "Kho khuyến mãi",
+        "targetChannel": "CHUNG",
+        "products": [
+            {
+                "code": "102289",
+                "maxQuantity": 1,
+                "uom": "Thùng"
+            },
+            {
+                "code": "182068",
+                "maxQuantity": 5
+            }
+        ]
+    }
+]
