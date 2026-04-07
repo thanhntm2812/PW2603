@@ -136,10 +136,10 @@ test.describe("Data-driven Internal Stock Transfer", () => {
                 // ============== ROLE HO: APPROVE ==============
                 const contextHO = await browser.newContext();
                 const pageHO = await contextHO.newPage();
-                
-                const { LoginPage } = await import('./pages/login.page');
+
+                const { Dms90LoginPage } = await import('./pages/dms90-login.page');
                 const { InternalTransferPage } = await import('./pages/internalTransfer.page');
-                const loginPageHO = new LoginPage(pageHO);
+                const loginPageHO = new Dms90LoginPage(pageHO);
                 const transferPageHO = new InternalTransferPage(pageHO);
 
                 await loginPageHO.goto();

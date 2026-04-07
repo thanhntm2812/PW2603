@@ -14,7 +14,13 @@ export class InventoryPage {
 
     async checkInventory(warehouse: string, channel: string, productCode: string): Promise<{ sysStock: number, availStock: number }> {
         console.log(`Checking inventory for ${productCode} in ${warehouse} - ${channel}`);
-        
+
+        // Navigate to inventory list if not already there
+        const currentUrl = this.page.url();
+        if (!currentUrl.includes('/inventories/list')) {
+            await this.gotoList();
+        }
+
         // 1. Kiểm tra xem Popup "Tạo mới phiếu kiểm kho" đã mở chưa
         const modalContent = this.page.locator('div.ant-modal-content:visible').first();
         if (!(await modalContent.isVisible())) {

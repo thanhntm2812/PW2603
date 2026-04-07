@@ -1,17 +1,17 @@
 import { test as base } from "@playwright/test";
-import { LoginPage } from "../pages/login.page";
+import { Dms90LoginPage } from "../pages/dms90-login.page";
 import { InternalTransferPage } from "../pages/internalTransfer.page";
 import { InventoryPage } from "../pages/inventory.page";
 
 type Dms90uatFixtures = {
-    loginPage: LoginPage;
+    loginPage: Dms90LoginPage;
     internalTransferPage: InternalTransferPage;
     inventoryPage: InventoryPage;
 };
 
 export const test = base.extend<Dms90uatFixtures>({
     loginPage: async ({ page }, use) => {
-        const loginPage = new LoginPage(page);
+        const loginPage = new Dms90LoginPage(page);
         await use(loginPage);
     },
     internalTransferPage: async ({ page }, use) => {
