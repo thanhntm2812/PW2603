@@ -1,0 +1,29 @@
+name: Playwright Tests - UAT Chuyen Kho Noi Bo
+on:
+    push:
+        branches: [uat/chuyen-kho-noi-bo]
+    pull_request:
+        branches: [uat/chuyen-kho-noi-bo]
+jobs:
+    test:
+        timeout-minutes: 60
+        runs-on: ubuntu-latest
+        env:
+            FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: lts/*
+            - name: Install dependencies
+              run: npm ci
+            - name: Install Playwright Browsers
+              run: npx playwright install --with-deps
+            - name: Run Playwright tests for Chuyen Kho Noi Bo
+              run: npx playwright test tests/chuyen-kho-noi-bo.spec.ts
+            - uses: actions/upload-artifact@v4
+              if: ${{ !cancelled() }}
+              with:
+                  name: playwright-report-uat-chuyen-kho-noi-bo
+                  path: playwright-report/
+                  retention-days: 30
