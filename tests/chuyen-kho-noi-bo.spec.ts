@@ -205,8 +205,8 @@ test.describe("Data-driven Internal Stock Transfer", () => {
                     }
                 }
 
-                const fs = require("fs");
-                const path = require("path");
+                //const fs = require("fs");
+                //const path = require("path");
                 const reportDir = path.join(process.cwd(), "test-results", "reports");
                 if (!fs.existsSync(reportDir)) fs.mkdirSync(reportDir, { recursive: true });
                 const reportHtml = `
