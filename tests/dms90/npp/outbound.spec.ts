@@ -25,7 +25,7 @@ test('outbound successful with an sell-out order', async ({ page }) => {
   await page.goto('https://ht-portal-uat.finviet.com.vn/auth/login');
   
   await page.getByRole('textbox', { name: 'Nhập vào tài khoản.' }).fill('PWQC0011');
-  await page.getByRole('textbox', { name: 'Nhập vào mật khẩu.' }).fill('PWtest@123');
+  await page.getByRole('textbox', { name: 'Nhập vào mật khẩu.' }).fill('Abc@123123');
   await page.getByRole('button', { name: 'Đăng nhập' }).click();
 
   
